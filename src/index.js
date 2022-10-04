@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { readTalkerFile, findTalkerById } = require('./utils/readAndWriteFiles');
 const generateToken = require('./utils/generateToken');
+const { isEmailValid } = require('./middlewares/validateEmail');
+const { isPasswordValid } = require('./middlewares/validatePassword');
 
 const app = express();
 app.use(bodyParser.json());
@@ -37,7 +39,7 @@ app.get('/talker/:id', async (req, res) => {
   res.status(HTTP_OK_STATUS).json(talkerId);
 });
 
-// Requirement 3
-app.post('/login', async (req, res) => {
+// Requirement 3 and 4
+app.post('/login', isEmailValid, isPasswordValid, async (req, res) => {
 res.status(HTTP_OK_STATUS).json({ token: generateToken() });
 });
