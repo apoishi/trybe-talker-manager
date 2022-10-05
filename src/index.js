@@ -4,6 +4,7 @@ const { readTalkerFile,
   findTalkerById, 
   insertTalkerFile, 
   updateTalkerFile,
+  deleteTalker,
 } = require('./utils/readAndWriteFiles');
 const generateToken = require('./utils/generateToken');
 const { isEmailValid } = require('./middlewares/validateEmail');
@@ -81,4 +82,12 @@ isWatchedAtValid,
   const { id } = req.params;
   const updatedTalker = await updateTalkerFile(newInfo, id);
   res.status(HTTP_OK_STATUS).json(updatedTalker);
+});
+
+// Requirement 7
+app.delete('/talker/:id', isTokenValid, async (req, res) => {
+  const { id } = req.params;
+
+ await deleteTalker(id);
+  res.status(204).end();
 });

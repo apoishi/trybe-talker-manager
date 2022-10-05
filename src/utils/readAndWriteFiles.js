@@ -43,9 +43,22 @@ const updateTalkerFile = async (newInfo, talkerId) => {
     }
 };
 
+// Requirement 7
+const deleteTalker = async (talkerId) => {
+  try {
+    const talkers = await readTalkerFile();
+    const index = talkers.findIndex(({ id }) => id === Number(talkerId));
+    talkers.splice(index, 1);
+    await fs.writeFile('src/talker.json', JSON.stringify(talkers));
+  } catch (error) {
+    console.error(`Error: ${error}`);
+ }
+};
+
 module.exports = {
   readTalkerFile,
   insertTalkerFile,
   findTalkerById,
   updateTalkerFile,
+  deleteTalker,
 };
