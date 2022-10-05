@@ -1,5 +1,5 @@
 const isEmailValid = (req, res, next) => {
-  const regexChecker = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  const isFormatEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   const { email } = req.body;
 
   if (!email) {
@@ -7,7 +7,7 @@ const isEmailValid = (req, res, next) => {
       message: 'O campo "email" é obrigatório',
     });
   }
-  if (!regexChecker.test(email)) {
+  if (!isFormatEmail.test(email)) {
     return res.status(400).json({
       message: 'O "email" deve ter o formato "email@email.com"',
     });
