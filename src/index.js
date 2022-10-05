@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { readTalkerFile, 
   findTalkerById, 
-  insertTalkerFile } = require('./utils/readAndWriteFiles');
+  insertTalkerFile, 
+  updateTalkerFile,
+} = require('./utils/readAndWriteFiles');
 const generateToken = require('./utils/generateToken');
 const { isEmailValid } = require('./middlewares/validateEmail');
 const { isPasswordValid } = require('./middlewares/validatePassword');
@@ -60,9 +62,23 @@ isNameValid,
 isTalkValid, 
 isRateValid, 
 isWatchedAtValid, 
-
 async (req, res) => {
   const newTalker = req.body;
   const newTalkerwithId = await insertTalkerFile(newTalker);
   res.status(201).json(newTalkerwithId);
+});
+
+// Requirement 6
+app.put('/talker/:id',
+isTokenValid,
+isAgeValid, 
+isNameValid, 
+isTalkValid, 
+isRateValid, 
+isWatchedAtValid,
+ async (req, res) => {
+  const newInfo = req.body;
+  const { id } = req.params;
+  const updatedTalker = await updateTalkerFile(newInfo, id);
+  res.status(HTTP_OK_STATUS).json(updatedTalker);
 });
