@@ -52,7 +52,19 @@ const deleteTalker = async (talkerId) => {
     await fs.writeFile('src/talker.json', JSON.stringify(talkers));
   } catch (error) {
     console.error(`Error: ${error}`);
- }
+  }
+};
+
+// Requirement 8
+const searchTalkerByName = async (query) => {
+  try {
+  const talkers = await readTalkerFile();
+  const filteredTalkers = talkers.filter(({ name }) =>
+  name.toLowerCase().includes(query.toLowerCase()));
+  return filteredTalkers;
+  } catch (error) {
+  console.error(`Error: ${error}`);
+  }
 };
 
 module.exports = {
@@ -61,4 +73,5 @@ module.exports = {
   findTalkerById,
   updateTalkerFile,
   deleteTalker,
+  searchTalkerByName,
 };

@@ -5,6 +5,7 @@ const { readTalkerFile,
   insertTalkerFile, 
   updateTalkerFile,
   deleteTalker,
+  searchTalkerByName,
 } = require('./utils/readAndWriteFiles');
 const generateToken = require('./utils/generateToken');
 const { isEmailValid } = require('./middlewares/validateEmail');
@@ -38,6 +39,13 @@ app.get('/talker', async (_req, res) => {
     return res.status(HTTP_OK_STATUS).json(talkers);
   }
   return res.status(HTTP_OK_STATUS).json({ message: [] }); 
+});
+
+// Requirement 8
+app.get('/talker/search', isTokenValid, async (req, res) => {
+  const { q } = req.query;
+  const filteredTalkers = await searchTalkerByName(q);
+  res.status(HTTP_OK_STATUS).json(filteredTalkers);
 });
 
 // Requirement 2
