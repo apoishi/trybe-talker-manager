@@ -120,6 +120,7 @@ git clone git@github.com:apoishi/trybe-talker-manager.git
 * Node.js
 * Express.js
 * Docker
+* Javascript
 
 </details>
 
