@@ -63,6 +63,12 @@ git clone git@github.com:apoishi/trybe-talker-manager.git
 ## 🚂 Routes
 
 <details>
+   <summary><strong>POST /login</strong></summary>
+   </br>
+   • If the login was successful, it returns a token to the user.
+</details>
+
+<details>
    <summary><strong>GET /talkers</strong></summary>
    </br>
    • Return all speakers from the database.
@@ -81,12 +87,6 @@ git clone git@github.com:apoishi/trybe-talker-manager.git
    </br>
    • Search a speaker by id in the database.
    </br>
-</details>
-
-<details>
-   <summary><strong>POST /login</strong></summary>
-   </br>
-   • If the login was successful, it returns a token to the user.
 </details>
 
 <details>
