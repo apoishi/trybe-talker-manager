@@ -60,7 +60,7 @@ git clone git@github.com:apoishi/trybe-talker-manager.git
 
 <br />
 
-## Routes
+## 🚂 Routes
 
 <details>
    <summary><strong>GET /talkers</strong></summary>
@@ -181,7 +181,7 @@ git clone git@github.com:apoishi/trybe-talker-manager.git
 
 <br />
 
-## Rotas
+## 🚂 Rotas
 
 <details>
   <summary><strong>GET /talkers</strong></summary>
