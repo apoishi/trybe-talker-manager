@@ -14,7 +14,7 @@ In this project I built an application for registering speakers in which it will
 ## 🚀 Installation
 
 <details>
-<summary>Installation and execution with Docker</summary>
+<summary>Installating and running with Docker</summary>
 <br />
 
 To run this application you need to have **Git**, **Docker** and **Docker Compose** installed on your computer. Docker Compose needs to be version **1.29** or higher.
