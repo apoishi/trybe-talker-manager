@@ -183,6 +183,12 @@ git clone git@github.com:apoishi/trybe-talker-manager.git
 <br />
 
 ## 🚂 Rotas
+  
+<details>
+  <summary><strong>POST /login</strong></summary>
+  </br>
+  • Caso o login tenha sido efetuado com sucesso retorna um token para o usuário.
+</details>
 
 <details>
   <summary><strong>GET /talkers</strong></summary>
@@ -203,12 +209,6 @@ git clone git@github.com:apoishi/trybe-talker-manager.git
   </br>
   • Busca o palestrante por id no banco de dados.
   </br>
-</details>
-
-<details>
-  <summary><strong>POST /login</strong></summary>
-  </br>
-  • Caso o login tenha sido efetuado com sucesso retorna um token para o usuário.
 </details>
 
 <details>
